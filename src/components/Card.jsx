@@ -31,12 +31,12 @@ export function Card({ blog }) {
         {showImage ? (
           <img
             alt={blog.title}
-            className="aspect-[4/3] w-full object-cover"
+            className="aspect-4/3 w-full object-cover"
             onError={() => setImageError(true)}
             src={imageUrl}
           />
         ) : (
-          <div className="flex aspect-[4/3] w-full items-center justify-center bg-slate-200 px-6 text-center text-sm font-semibold text-slate-500">
+          <div className="flex aspect-4/3 w-full items-center justify-center bg-slate-200 px-6 text-center text-sm font-semibold text-slate-500">
             No image available
           </div>
         )}
