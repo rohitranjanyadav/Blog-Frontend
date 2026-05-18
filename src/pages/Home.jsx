@@ -6,13 +6,11 @@ import axios from "axios";
 function Home() {
   const [blogs, setBlogs] = useState([]);
 
-  const fetchBlogs = async () => {
-    const response = await axios.get("http://localhost:3000/blog");
-    setBlogs(response.data.data);
-  };
-
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
+    const fetchBlogs = async () => {
+      const response = await axios.get("http://localhost:3000/blog");
+      setBlogs(response.data.data);
+    };
     fetchBlogs();
   }, []);
   return (
