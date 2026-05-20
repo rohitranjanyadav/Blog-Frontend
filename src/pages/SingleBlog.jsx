@@ -152,13 +152,15 @@ function SingleBlog() {
                   </div>
 
                   <div className="flex flex-wrap items-center gap-2">
-                    <button
-                      className="inline-flex h-10 items-center gap-2 rounded-md border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-slate-300 hover:bg-slate-50 hover:text-slate-950"
-                      type="button"
-                    >
-                      <EditIcon />
-                      Edit
-                    </button>
+                    <Link to={`/edit/${id}`}>
+                      <button
+                        className="inline-flex h-10 items-center gap-2 rounded-md border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-slate-300 hover:bg-slate-50 hover:text-slate-950"
+                        type="button"
+                      >
+                        <EditIcon />
+                        Edit
+                      </button>
+                    </Link>
                     <button
                       className="inline-flex h-10 items-center gap-2 rounded-md border border-red-200 bg-white px-4 text-sm font-semibold text-red-700 shadow-sm transition hover:border-red-300 hover:bg-red-50"
                       type="button"
