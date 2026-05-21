@@ -2,6 +2,7 @@ import { useState } from "react";
 import { NavbarSimple } from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Footer from "../components/Footer";
 
 function UploadIcon() {
   return (
@@ -237,6 +238,7 @@ function CreateBlog() {
           </div>
         </section>
       </main>
+      <Footer/>
     </>
   );
 }

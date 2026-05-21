@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { NavbarSimple } from "../components/Navbar";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import Footer from "../components/Footer";
 
 function UploadIcon() {
   return (
@@ -316,6 +317,7 @@ function EditBlog() {
           )}
         </section>
       </main>
+      <Footer/>
     </>
   );
 }

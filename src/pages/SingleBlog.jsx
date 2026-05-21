@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { NavbarSimple } from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function BackIcon() {
   return (
@@ -205,6 +206,7 @@ function SingleBlog() {
           )}
         </section>
       </main>
+      <Footer/>
     </>
   );
 }

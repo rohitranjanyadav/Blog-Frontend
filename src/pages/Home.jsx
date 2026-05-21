@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Card } from "../components/Card";
 import { NavbarSimple } from "../components/Navbar";
 import axios from "axios";
+import Footer from "../components/Footer";
 
 function Home() {
   const [blogs, setBlogs] = useState([]);
@@ -26,6 +27,7 @@ function Home() {
           </div>
         </section>
       </main>
+      <Footer />
     </>
   );
 }
