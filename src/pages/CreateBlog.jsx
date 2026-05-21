@@ -3,6 +3,7 @@ import { NavbarSimple } from "../components/Navbar";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Footer from "../components/Footer";
+import { API_BASE_URL } from "../utils/api";
 
 function UploadIcon() {
   return (
@@ -62,7 +63,7 @@ function CreateBlog() {
 
   const createBlog = async (e) => {
     e.preventDefault();
-    const response = await axios.post("http://localhost:3000/blog", data, {
+    const response = await axios.post(`${API_BASE_URL}/blog`, data, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
@@ -238,7 +239,7 @@ function CreateBlog() {
           </div>
         </section>
       </main>
-      <Footer/>
+      <Footer />
     </>
   );
 }

@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { NavbarSimple } from "../components/Navbar";
 import Footer from "../components/Footer";
+import { API_BASE_URL, getImageUrl } from "../utils/api";
 
 function BackIcon() {
   return (
@@ -71,7 +72,7 @@ function SingleBlog() {
   const navigate = useNavigate();
 
   const hasImage = Boolean(blog?.image);
-  const imageUrl = hasImage ? `http://localhost:3000/${blog.image}` : "";
+  const imageUrl = getImageUrl(blog?.image);
   const showImage = hasImage && !imageError;
 
   useEffect(() => {
@@ -80,7 +81,7 @@ function SingleBlog() {
         setIsLoading(true);
         setError("");
         setImageError(false);
-        const response = await axios.get(`http://localhost:3000/blog/${id}`);
+        const response = await axios.get(`${API_BASE_URL}/blog/${id}`);
         setBlog(response.data.data);
       } catch {
         setError("Unable to load this blog right now.");
@@ -93,7 +94,7 @@ function SingleBlog() {
   }, [id]);
 
   const deleteButton = async () => {
-    const response = await axios.delete(`http://localhost:3000/blog/${id}`);
+    const response = await axios.delete(`${API_BASE_URL}/blog/${id}`);
 
     if (response.status === 200) {
       alert("Blog Deleted Successfully!!!");
@@ -206,7 +207,7 @@ function SingleBlog() {
           )}
         </section>
       </main>
-      <Footer/>
+      <Footer />
     </>
   );
 }

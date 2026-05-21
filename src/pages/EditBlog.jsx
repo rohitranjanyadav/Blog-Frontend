@@ -3,6 +3,7 @@ import { NavbarSimple } from "../components/Navbar";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Footer from "../components/Footer";
+import { API_BASE_URL, getImageUrl } from "../utils/api";
 
 function UploadIcon() {
   return (
@@ -60,7 +61,7 @@ function EditBlog() {
       try {
         setIsLoading(true);
         setError("");
-        const response = await axios.get("http://localhost:3000/blog/" + id);
+        const response = await axios.get(`${API_BASE_URL}/blog/${id}`);
         const blog = response.data.data;
 
         setData({
@@ -102,7 +103,7 @@ function EditBlog() {
     }
 
     const response = await axios.patch(
-      "http://localhost:3000/blog/" + id,
+      `${API_BASE_URL}/blog/${id}`,
       formData,
       {
         headers: {
@@ -287,7 +288,7 @@ function EditBlog() {
                   <img
                     alt={data.title}
                     className="mt-6 aspect-4/3 w-full rounded-lg border border-slate-200 object-cover"
-                    src={"http://localhost:3000/" + currentImage}
+                    src={getImageUrl(currentImage)}
                   />
                 ) : (
                   <div className="mt-6 flex aspect-4/3 items-center justify-center rounded-lg border border-slate-200 bg-slate-100 px-6 text-center text-sm font-semibold text-slate-500">
@@ -317,7 +318,7 @@ function EditBlog() {
           )}
         </section>
       </main>
-      <Footer/>
+      <Footer />
     </>
   );
 }

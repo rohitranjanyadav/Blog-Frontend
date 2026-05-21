@@ -89,13 +89,13 @@ export function NavbarSimple() {
         </div>
 
         <div className="hidden items-center gap-3 md:flex">
-          <button
+          <Link
             aria-label="Search posts"
             className="flex h-10 w-10 items-center justify-center rounded-md border border-slate-200 text-slate-600 transition hover:border-slate-300 hover:bg-slate-50 hover:text-slate-950"
-            type="button"
+            to="/articles"
           >
             <SearchIcon />
-          </button>
+          </Link>
           <Link
             className="rounded-md bg-slate-950 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800"
             to="/create"
@@ -129,19 +129,20 @@ export function NavbarSimple() {
               </Link>
             ))}
             <div className="mt-2 grid grid-cols-[auto_1fr] gap-3">
-              <button
+              <Link
                 aria-label="Search posts"
                 className="flex h-11 w-11 items-center justify-center rounded-md border border-slate-200 text-slate-600"
-                type="button"
+                onClick={() => setIsMenuOpen(false)}
+                to="/articles"
               >
                 <SearchIcon />
-              </button>
+              </Link>
               <Link
                 className="flex h-11 items-center justify-center rounded-md bg-slate-950 px-4 text-sm font-semibold text-white"
                 onClick={() => setIsMenuOpen(false)}
-                to="/subscribe"
+                to="/create"
               >
-                Subscribe
+                Create
               </Link>
             </div>
           </div>

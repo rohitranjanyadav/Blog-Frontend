@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { getImageUrl } from "../utils/api";
 
 function ArrowIcon() {
   return (
@@ -22,8 +23,9 @@ function ArrowIcon() {
 export function Card({ blog }) {
   const [imageError, setImageError] = useState(false);
   const hasImage = Boolean(blog.image);
-  const imageUrl = hasImage ? `http://localhost:3000/${blog.image}` : "";
+  const imageUrl = getImageUrl(blog.image);
   const showImage = hasImage && !imageError;
+  const subtitle = blog.subtitle || "Article";
 
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:border-slate-300 hover:shadow-md">
@@ -45,7 +47,7 @@ export function Card({ blog }) {
       <div className="flex flex-1 flex-col p-4">
         <div className="mb-3 flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-normal text-slate-500">
           <span className="rounded-md border border-slate-200 bg-slate-50 px-2.5 py-1 text-slate-700">
-            {blog.subtitle}
+            {subtitle}
           </span>
         </div>
 
@@ -62,7 +64,7 @@ export function Card({ blog }) {
         <div className="mt-auto flex items-center justify-between gap-3 border-t border-slate-200 pt-4">
           <div className="min-w-0">
             <p className="truncate text-sm font-semibold text-slate-950">
-              {blog.subtitle}
+              {subtitle}
             </p>
             <p className="text-xs text-slate-500">Read full article</p>
           </div>
